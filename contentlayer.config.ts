@@ -13,6 +13,10 @@ export const Project = defineDocumentType(() => ({
       type: 'string',
       required: true,
     },
+    private: {
+      type: 'boolean',
+      required: false,
+    },
   },
   computedFields: {
     slug: {
@@ -35,6 +39,10 @@ export const Post = defineDocumentType(() => ({
     title: {
       type: 'string',
       required: true,
+    },
+    private: {
+      type: 'boolean',
+      required: false,
     },
   },
   computedFields: {

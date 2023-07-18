@@ -14,6 +14,7 @@ export type Post = {
   _raw: Local.RawDocumentData
   type: 'Post'
   title: string
+  private?: boolean | undefined
   /** MDX file body */
   body: MDX
   slug: string
@@ -26,6 +27,7 @@ export type Project = {
   _raw: Local.RawDocumentData
   type: 'Project'
   title: string
+  private?: boolean | undefined
   /** MDX file body */
   body: MDX
   slug: string

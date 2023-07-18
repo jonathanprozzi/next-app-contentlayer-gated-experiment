@@ -1,5 +1,6 @@
 import { Mdx } from '@/components/mdx-components';
 import { allPosts } from 'contentlayer/generated';
+import { notFound } from 'next/navigation';
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({
@@ -16,6 +17,10 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post.slugAsParams === params.slug);
   if (!post) throw new Error(`Post not found for slug ${params.slug}`);
+
+  if (post.private === true) {
+    notFound();
+  }
 
   return (
     <section className="max-auto max-w-xl py-8">
